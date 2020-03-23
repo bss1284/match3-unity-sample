@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
-using Sirenix.OdinInspector;
 
 namespace BSS {
     /// <summary>
@@ -9,12 +8,10 @@ namespace BSS {
     /// </summary>
     [CreateAssetMenu(fileName = "NewSpriteAnimation", menuName = "BSS/Sprite Animation", order = 100)]
     public class SpriteAnimation : ScriptableObject {
-        [ShowInInspector]
         public float realDuration => animFrames.Count == 0 ? 0f : GetRealDuration();
 
         
 
-        [ReadOnly]
         public List<AnimationFrame> animFrames = new List<AnimationFrame>();
 
         [SerializeField]
@@ -30,12 +27,9 @@ namespace BSS {
         }
 
 
-        [BoxGroup("Edit Mode")]
         [SerializeField]
         private List<Sprite> editFrames = new List<Sprite>();
 
-        [BoxGroup("Edit Mode")]
-        [Button(ButtonSizes.Medium)]
         private void Apply() {
             if (editFrames.Count == 0) return;
             editFrames.Sort((x,y) => {
@@ -48,8 +42,6 @@ namespace BSS {
             editFrames.Clear();
         }
 
-        [BoxGroup("Edit Mode")]
-        [Button(ButtonSizes.Medium)]
         private void Clear() {
             animFrames.Clear();
         }

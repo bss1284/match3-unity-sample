@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector;
 
 public class Indexer2 : MonoBehaviour {
     public Indexer2 Init(int x,int y) {
@@ -14,7 +13,6 @@ public class Indexer2 : MonoBehaviour {
     [SerializeField]
     private int _y;
 
-    [ReadOnly]
     [SerializeField]
     private Vector2 xy {
         get { return new Vector2(_x, _y); }

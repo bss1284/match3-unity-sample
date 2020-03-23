@@ -4,7 +4,6 @@ using UnityEngine;
 using BSS;
 using BSS.Extension;
 using System.Linq;
-using Sirenix.OdinInspector;
 
 /// <summary>
 /// -Todo. 해야될것-
@@ -13,13 +12,10 @@ using Sirenix.OdinInspector;
 /// </summary>
 public class GameManager : Singleton<GameManager>
 {
-    [ReadOnly]
     [SerializeField]
     private Block selectBlock;
-    [ReadOnly]
     [SerializeField]
     private List<MatchInfo> curMatchInfos = new List<MatchInfo>();
-    [ReadOnly]
     [SerializeField]
     private bool isReady = true;
 

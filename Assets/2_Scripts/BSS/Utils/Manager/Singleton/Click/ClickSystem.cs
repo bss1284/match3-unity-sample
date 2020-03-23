@@ -5,14 +5,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using BSS.Extension;
-using Sirenix.OdinInspector;
 
 namespace BSS {
     public class ClickSystem : Singleton<ClickSystem> {
         public event Action<Clickable> OnOnceClickAction;
         public event Action<Clickable> OnDoubleClickAction;
-
-        [BoxGroup("DoubleClickOption")]
         [SerializeField]
         private float doubleInterval = 0.2f;
 

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-using Sirenix.OdinInspector;
 
 namespace BSS {
     public class Mover : MonoBehaviour  {
@@ -14,9 +13,7 @@ namespace BSS {
         public float stopDistance = 0.1f;
         public MoveType moveType;
         
-        [ShowIf("moveType", MoveType.Goal)]
         public Vector3 destination;
-        [ShowIf("moveType", MoveType.Follow)]
         public GameObject target;
 
         private List<Vector3> nextGoals = new List<Vector3>();

@@ -3,29 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using BSS.Extension;
-using Sirenix.OdinInspector;
 
 namespace BSS {
     /// <summary>
     /// GameObject에 텍스트 컴포넌트를 등록하기위한 클래스
     /// </summary>
     public class WorldTextDrawer : MonoBehaviour {
-        [FoldoutGroup("Canvas")]
         public Vector2 canvasScale=Vector2.one *0.01f;
-        [FoldoutGroup("Canvas")]
         public Vector2 canvasSize = new Vector2(200f, 200f);
-        [FoldoutGroup("Canvas")]
         public Vector2 relativePosition;
-        [FoldoutGroup("Canvas")]
         public string sortingLayerName="Default";
-        [FoldoutGroup("Canvas")]
         public int sortingOrder;
 
-        [FoldoutGroup("Font")]
         public Font font;
-        [FoldoutGroup("Font")]
         public int fontSize=10;
-        [FoldoutGroup("Font")]
         public Color fontColor = Color.white;
 
         private Dictionary<GameObject, Canvas> canvasDics = new Dictionary<GameObject, Canvas>();

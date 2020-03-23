@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using BSS;
 using System;
-using Sirenix.OdinInspector;
 
 namespace BSS.UI {
     /// <summary>
@@ -12,7 +11,6 @@ namespace BSS.UI {
     /// </summary>
     [RequireComponent(typeof(Text))]
     public class IncreaseText : MonoBehaviour {
-        [HideInEditorMode]
         public bool isUpdate;
         
         public event Action<int> OnRequestAction;//Action<Value>

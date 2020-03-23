@@ -5,12 +5,10 @@ using BSS;
 using BSS.Extension;
 using System;
 using System.Linq;
-using Sirenix.OdinInspector;
 
 public class MatchManager : Singleton<MatchManager>
 {
     public List<Block> blocks => BlockManager.instance.blocks;
-    [ShowInInspector]
     public List<Direction[]> bunchDirections = new List<Direction[]>();
 
     private void Awake() {

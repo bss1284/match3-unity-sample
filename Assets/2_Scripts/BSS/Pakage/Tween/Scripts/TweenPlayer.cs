@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BSS.UI;
-using Sirenix.OdinInspector;
 using UnityEngine.UI;
 using BSS.Extension;
 using System;
@@ -30,7 +29,6 @@ namespace BSS {
         [SerializeField]
         private bool onStartPlaying;
         [SerializeField]
-        [ShowIf("onStartPlaying")]
         private TweenElement startElement;
 
         private int playCount;

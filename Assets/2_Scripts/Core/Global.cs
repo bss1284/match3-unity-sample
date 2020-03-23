@@ -13,8 +13,6 @@ public class Global
     public const float BLOCK_SWAP_SPEED = 8f;
     public const float BLOCK_DROP_SPEED = 12f;
     public const float MATCH_CHECK_DELAY = 1.5f;
-
-
 }
 
 

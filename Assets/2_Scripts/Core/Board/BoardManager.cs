@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BSS;
-using Sirenix.OdinInspector;
 using BSS.Extension;
 using System;
 
-public class BoardManager : SerializedMonoBehaviour{
+public class BoardManager : MonoBehaviour{
     private static BoardManager _instance;
     public static BoardManager instance {
         get {
@@ -20,14 +19,14 @@ public class BoardManager : SerializedMonoBehaviour{
             return _instance;
         }
     }
-    [InfoBox("다른 맵 구현 안함 (Not yet)")]
-    [SerializeField]
-    public bool[,] boardTable = new bool[Global.MAX_SIZE.x, Global.MAX_SIZE.y];
+    
     public Board boardPrefab;
     public List<Board> boards = new List<Board>();
 
+    private bool[,] boardTable = new bool[Global.MAX_SIZE.x, Global.MAX_SIZE.y];
 
     void Awake() {
+        InitializeBoardTable();
         InitializeTiles();
         if (Global.TOTAL_COUNT != boards.Count) throw new Exception("TotalCount 상수와 실제 보드 개수가 다릅니다.");
     }
@@ -48,15 +47,30 @@ public class BoardManager : SerializedMonoBehaviour{
 
 
     private void OnValidate() {
-        //사이즈 변경될시 새로운 배열 적용
-        if (Global.MAX_SIZE!=new Vector2Int(boardTable.GetLength(0),boardTable.GetLength(1)) ) {
-            boardTable = new bool[Global.MAX_SIZE.x, Global.MAX_SIZE.y];
-        }
-        //Offset 적용
-        for (int i = 0; i < boardTable.GetLength(0); i++) {
-            for (int j = 0; j < boardTable.GetLength(1); j++) {
-                if (i % 2 != j % 2) continue;
-                boardTable[i, j] = false;
+        ////사이즈 변경될시 새로운 배열 적용
+        //if (Global.MAX_SIZE!=new Vector2Int(boardTable.GetLength(0),boardTable.GetLength(1)) ) {
+        //    boardTable = new bool[Global.MAX_SIZE.x, Global.MAX_SIZE.y];
+        //}
+        ////Offset 적용
+        //for (int i = 0; i < boardTable.GetLength(0); i++) {
+        //    for (int j = 0; j < boardTable.GetLength(1); j++) {
+        //        if (i % 2 != j % 2) continue;
+        //        boardTable[i, j] = false;
+        //    }
+        //}
+    }
+
+    private void InitializeBoardTable() {
+        for(int x = 0; x < Global.MAX_SIZE.x; x++) {
+            for(int y = 0; y < Global.MAX_SIZE.y; y++) {
+                if((x + y) % 2 == 0) {
+                    continue;
+                }
+                if((x == 0 && y == 1) || (x == 0 && y == Global.MAX_SIZE.y-2) || (x == 1 && y == 0) || (x == 1 && y == Global.MAX_SIZE.y - 1))
+                    continue;
+                if((x == Global.MAX_SIZE.x-1 && y == 1) || (x == Global.MAX_SIZE.x - 1 && y == Global.MAX_SIZE.y - 2) || (x == Global.MAX_SIZE.x - 2 && y == 0) || (x == Global.MAX_SIZE.x - 2 && y == Global.MAX_SIZE.y - 1))
+                    continue;
+                boardTable[x, y] = true;
             }
         }
     }

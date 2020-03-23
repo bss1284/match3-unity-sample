@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using System.Collections;
 using System.Linq;
 using System;
@@ -22,9 +21,7 @@ namespace BSS {
         public List<SpriteAnimation> animations = new List<SpriteAnimation>();
 
         
-        [HideInEditorMode]
         [SerializeField]
-        [ReadOnly]
         public SpriteAnimation baseAnimation { get; private set; }
         
         public bool isPlaying { get { return playListener != null; } }

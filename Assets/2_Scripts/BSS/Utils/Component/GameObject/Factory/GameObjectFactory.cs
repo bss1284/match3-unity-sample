@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Sirenix.OdinInspector;
 using BSS.Extension;
 
 namespace BSS {
@@ -22,7 +21,6 @@ namespace BSS {
 
         private GameObject child;
 
-        [Button(ButtonSizes.Medium)]
         public void CreateChilds() {
             var childTr = transform.GetChild(0);
             if (childTr == null) {
@@ -60,7 +58,6 @@ namespace BSS {
             }
         }
 
-        [Button(ButtonSizes.Medium)]
         public void ClearChilds() {
             for (int i = transform.childCount-1; i >= 1; i--) {
                 DestroyImmediate(transform.GetChild(i).gameObject);

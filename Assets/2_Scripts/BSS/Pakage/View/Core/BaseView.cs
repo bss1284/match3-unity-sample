@@ -4,7 +4,6 @@ using UnityEngine.Events;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
-using Sirenix.OdinInspector;
 using BSS.Extension;
 using System.Linq;
 
@@ -24,18 +23,13 @@ namespace BSS.UI {
 			set{ id = value; }
 		}
 
-        [FoldoutGroup("Element")]
         [SerializeField]
         public Button closeButton;
 
-        [FoldoutGroup("Show Event")]
         public AudioClip showSound;
-        [FoldoutGroup("Show Event")]
         public TweenElement showTween;
 
-        [FoldoutGroup("Close Event")]
         public AudioClip closeSound;
-        [FoldoutGroup("Close Event")]
         public TweenElement closeTween;
 
         public event Action OnShowAction;
@@ -93,8 +87,6 @@ namespace BSS.UI {
                 OnShowAction.Invoke ();
 			}
 		}
-        [ButtonGroup("ShowClose")]
-        [Button(Name = "Show")]
         public void ShowByForce() {
             canvasGroup.alpha = 1f;
             canvasGroup.interactable = true;
@@ -120,8 +112,6 @@ namespace BSS.UI {
                 OnCloseAction.Invoke ();
 			}
 		}
-        [ButtonGroup("ShowClose")]
-        [Button(Name ="Close")]
         public void CloseByForce() {
             canvasGroup.alpha = 0f;
             canvasGroup.interactable = false;
